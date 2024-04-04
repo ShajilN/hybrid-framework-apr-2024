@@ -2,15 +2,15 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-04-02T00:04:09 PDT" name="Default suite" finished-at="2024-04-02T00:04:09 PDT" duration-ms="82">
+  <suite started-at="2024-04-03T23:26:01 PDT" name="Default suite" finished-at="2024-04-03T23:26:11 PDT" duration-ms="9700">
     <groups>
     </groups>
-    <test started-at="2024-04-02T00:04:09 PDT" name="Default test" finished-at="2024-04-02T00:04:09 PDT" duration-ms="82">
+    <test started-at="2024-04-03T23:26:01 PDT" name="Default test" finished-at="2024-04-03T23:26:11 PDT" duration-ms="9700">
       <class name="com.allianz.test.LoginUITest">
-        <test-method signature="titleTest()[pri:0, instance:com.allianz.test.LoginUITest@67f639d3]" started-at="2024-04-02T00:04:09 PDT" name="titleTest" finished-at="2024-04-02T00:04:09 PDT" duration-ms="13" status="PASS">
+        <test-method signature="applicationDescriptionTest()[pri:0, instance:com.allianz.test.LoginUITest@47e2e487]" started-at="2024-04-03T23:26:01 PDT" name="applicationDescriptionTest" finished-at="2024-04-03T23:26:11 PDT" duration-ms="9615" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- titleTest -->
+        </test-method> <!-- applicationDescriptionTest -->
       </class> <!-- com.allianz.test.LoginUITest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
