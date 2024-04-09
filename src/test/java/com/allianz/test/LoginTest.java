@@ -28,6 +28,9 @@ public class LoginTest extends AutomationWrapper{
 		//click on login
 		driver.findElement(By.xpath("//button[normalize-space()='Login'] ")).click();
 		//Assert the error - Invalid credentials
+		String actualErrorText=driver.findElement(By.xpath("//p[contains(@class,'alert-content-text')]")).getText();	
+		Assert.assertEquals(actualErrorText, "Invalid credentials");		
+	
 	}
 
 }
