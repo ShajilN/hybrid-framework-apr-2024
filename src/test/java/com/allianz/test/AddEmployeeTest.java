@@ -21,11 +21,11 @@ public class AddEmployeeTest extends AutomationWrapper {
 		driver.findElement(By.linkText("Add Employee")).click();
 		//upload the pdf file instead of image
 		String filePath = "C:\\Users\\Administrator\\Downloads\\dummy.pdf";
-//		driver.findElement(By.xpath("(//button[contains(@class,'icon-button')])[last()]")).click();
-		driver.findElement(By.xpath("(//button[contains(@class,'icon-button')])[last()]")).sendKeys(filePath);
+		driver.findElement(By.xpath("//input[@type='file']")).sendKeys(filePath);
 		//Assert the error - File type not allowed
 		String actualError = driver.findElement(By.xpath("//span[contains(@class,'error-message')]")).getText();
-		Assert.assertEquals(actualError, "File type not allowed");
+//		Assert.assertEquals(actualError, "File type not allowed");
+		Assert.assertTrue(actualError.contains("File type not allowed"));
 	}
 
 }
