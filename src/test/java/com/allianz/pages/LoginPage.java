@@ -3,21 +3,57 @@ package com.allianz.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
-	
-	
-	public static void enterUsername(WebDriver driver,String username)
-	{
-		driver.findElement(By.name("username")).sendKeys(username);
+import com.allianz.base.WebDriverKeywords;
+
+public class LoginPage extends WebDriverKeywords {
+
+	private By usernameLocator = By.name("username");
+	private By passwordLocator = By.name("password");
+	private By loginLocator = By.xpath("//button[normalize-space()='Login']");
+	private By errorTextLocator = By.xpath("//p[contains(@class,'alert-content-text')]");
+
+	private WebDriver driver;
+
+	public LoginPage(WebDriver driver) {
+
+		super(driver);
+		this.driver = driver;
 	}
-	public static void enterPassword(WebDriver driver,String password)
-	{
-		driver.findElement(By.name("password")).sendKeys(password);
+
+	public void enterUsername(String username) {
+//		driver.findElement(usernameLocator).sendKeys(username);
+		super.setInputText(usernameLocator, username);
 	}
-	public static void clickOnLogin(WebDriver driver)
-	{
-		driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
+
+	public void enterPassword(String password) {
+//		driver.findElement(passwordLocator).sendKeys(password);
+		setInputText(passwordLocator, password);
 	}
-	
-	//getInvalidErrorMessage()-->should return String
+
+	public void clickOnLogin() {
+//		driver.findElement(loginLocator).click();
+		clickElement(loginLocator);
+	}
+
+	// getInvalidErrorMessage()-->should return String
+	public String getInvalidErrorMessage() {
+
+//		return driver.findElement(errorTextLocator).getText();
+		return getText(errorTextLocator);
+
+	}
+
+	// get username field placeholder text
+	public String getUsernamePlaceholder() {
+
+//		return driver.findElement(usernameLocator).getAttribute("placeholder");
+		return getAttributeValue(usernameLocator, "placeholder");
+	}
+
+	public String getPasswordPlaceholder() {
+
+//		return driver.findElement(passwordLocator).getAttribute("placeholder");
+		return getAttributeValue(passwordLocator, "placeholder");
+	}
+
 }

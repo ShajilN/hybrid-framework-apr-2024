@@ -7,18 +7,20 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.allianz.base.AutomationWrapper;
+import com.allianz.pages.LoginPage;
 
 public class AddEmployeeTest2 extends AutomationWrapper {
 	
 	@Test
-	public void uploadInvalidDisplayPictureTest()
+	public void uploadInvalidDisplayPictureTest(String username, String password)
 	{
 		File file = new File("src/test/resources/files/dummy.pdf");
 		String filePath = file.getAbsolutePath();
 		
-		driver.findElement(By.name("username")).sendKeys("Admin");
-		driver.findElement(By.name("password")).sendKeys("admin123");
-		driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
+		LoginPage loginPage=new LoginPage(driver);
+		loginPage.enterUsername(username);
+		loginPage.enterPassword(password);
+		loginPage.clickOnLogin();
 		
 		//click on PIM menu
 		driver.findElement(By.linkText("PIM")).click();
