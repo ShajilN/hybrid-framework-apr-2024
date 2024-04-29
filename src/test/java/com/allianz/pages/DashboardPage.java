@@ -11,6 +11,7 @@ public class DashboardPage extends WebDriverKeywords {
 	private By assignLeaveLocator = By.xpath("//button[@title='Assign Leave']");
 	private By leaveListLocator = By.xpath("//button[@title='Leave List']");
 	private By timeSheetLocator = By.xpath("//button[@title='Timesheets']");
+	private By pimLocator = By.linkText("PIM");
 
 	private WebDriver driver;
 
@@ -46,5 +47,10 @@ public class DashboardPage extends WebDriverKeywords {
 
 //		driver.findElement(timeSheetLocator).click();
 		clickElement(timeSheetLocator);
+	}
+	
+	public void clickOnPIM() {
+
+		clickElement(pimLocator);
 	}
 }

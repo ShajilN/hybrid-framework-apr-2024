@@ -2,12 +2,13 @@ package com.allianz.test;
 
 import java.io.File;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.allianz.base.AutomationWrapper;
+import com.allianz.pages.DashboardPage;
 import com.allianz.pages.LoginPage;
+import com.allianz.pages.PIMPage;
 
 public class AddEmployeeTest2 extends AutomationWrapper {
 	
@@ -22,15 +23,20 @@ public class AddEmployeeTest2 extends AutomationWrapper {
 		loginPage.enterPassword(password);
 		loginPage.clickOnLogin();
 		
+		DashboardPage dashboardPage = new DashboardPage(driver);
 		//click on PIM menu
-		driver.findElement(By.linkText("PIM")).click();
+//		driver.findElement(By.linkText("PIM")).click();
+		dashboardPage.clickOnPIM();
+		PIMPage pimPage = new PIMPage(driver);
 		//click on add employee
-		driver.findElement(By.linkText("Add Employee")).click();
+		pimPage.clickOnAddEmployee();
 		//upload the pdf file instead of image
-		driver.findElement(By.xpath("//input[@type='file']")).sendKeys(filePath);
+//		driver.findElement(By.xpath("//input[@type='file']")).sendKeys(filePath);
+		pimPage.inputText(filePath);
 		//Assert the error - File type not allowed
-		String actualError = driver.findElement(By.xpath("//span[contains(@class,'error-message')]")).getText();
-//		Assert.assertEquals(actualError, "File type not allowed");
+//		String actualError = driver.findElement(By.xpath("//span[contains(@class,'error-message')]")).getText();
+		String actualError = pimPage.getInvalidErrorMessage();
+		Assert.assertEquals(actualError, "File type not allowed");
 		Assert.assertTrue(actualError.contains("File type not allowed"));
 	}
 
