@@ -10,7 +10,7 @@ import com.allianz.pages.DashboardPage;
 import com.allianz.pages.LoginPage;
 import com.allianz.pages.PIMPage;
 
-public class AddEmployeeTest2 extends AutomationWrapper {
+public class AddEmployee2Test extends AutomationWrapper {
 	
 	@Test
 	public void uploadInvalidDisplayPictureTest(String username, String password)
